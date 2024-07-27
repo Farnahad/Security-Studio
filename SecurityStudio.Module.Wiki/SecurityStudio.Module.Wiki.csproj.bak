@@ -1,0 +1,544 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Library</OutputType>
+		<TargetFramework>net6.0-windows</TargetFramework>
+		<Nullable>disable</Nullable>
+		<UseWPF>true</UseWPF>
+		<UseWindowsForms>true</UseWindowsForms>
+		<SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
+		<StartupObject></StartupObject>
+		<AssemblyName>$(MSBuildProjectName)</AssemblyName>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="CliWrap" Version="3.4.4" />
+		<PackageReference Include="ConsoleControl" Version="1.3.0" />
+		<PackageReference Include="ConsoleControl.WPF" Version="1.3.0" />
+		<PackageReference Include="FluentValidation" Version="10.4.0" />
+		<PackageReference Include="LiteDB" Version="5.0.11" />
+		<PackageReference Include="Ninject" Version="3.3.4" />
+		<PackageReference Include="NLog" Version="4.7.15" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\SecurityStudio.Base.Control\SecurityStudio.Base.Control.csproj" />
+		<ProjectReference Include="..\SecurityStudio.Base.Main\SecurityStudio.Base.Main.csproj" />
+		<ProjectReference Include="..\SecurityStudio.Base.Tool\SecurityStudio.Base.Tool.csproj" />
+		<ProjectReference Include="..\SecurityStudio.Database.Data\SecurityStudio.Database.Data.csproj" />
+		<ProjectReference Include="..\SecurityStudio.Database.Model\SecurityStudio.Database.Model.csproj" />
+		<ProjectReference Include="..\SecurityStudio.Service.Base\SecurityStudio.Service.Base.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Reference Include="DevExpress.Data.Desktop.v21.2">
+			<SpecificVersion>False</SpecificVersion>
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Data.Desktop.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Data.v21.2">
+			<HintPath>..\Devexpress Standard 21.2.5.0\DevExpress.Data.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Mvvm.v21.2">
+			<SpecificVersion>False</SpecificVersion>
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Mvvm.v21.2.dll</HintPath>
+			<Private>True</Private>
+		</Reference>
+		<Reference Include="DevExpress.Printing.v21.2.Core">
+			<HintPath>..\Devexpress Standard 21.2.5.0\DevExpress.Printing.v21.2.Core.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Controls.v21.2">
+			<SpecificVersion>False</SpecificVersion>
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Controls.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Core.v21.2">
+			<SpecificVersion>False</SpecificVersion>
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Core.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Docking.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Docking.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Grid.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Grid.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Grid.v21.2.Core">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Grid.v21.2.Core.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Layout.v21.2.Core">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Layout.v21.2.Core.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.LayoutControl.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.LayoutControl.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.NavBar.v21.2">
+			<HintPath>..\Devexpress NetCore 21.2.5.0\DevExpress.Xpf.NavBar.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Printing.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Printing.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Ribbon.v21.2">
+			<SpecificVersion>False</SpecificVersion>
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Ribbon.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Themes.LightGray.v21.2">
+			<HintPath>..\Devexpress NetCore 21.2.5.0\DevExpress.Xpf.Themes.LightGray.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Themes.Office2013LightGray.v21.2">
+			<HintPath>..\Devexpress NetCore 21.2.5.0\DevExpress.Xpf.Themes.Office2013LightGray.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="EO.Base">
+			<HintPath>..\EO.Total 2022\EO.Base.dll</HintPath>
+		</Reference>
+		<Reference Include="EO.Pdf">
+			<HintPath>..\EO.Total 2022\EO.Pdf.dll</HintPath>
+		</Reference>
+		<Reference Include="EO.Pdf.WinForm">
+			<HintPath>..\EO.Total 2022\EO.Pdf.WinForm.dll</HintPath>
+		</Reference>
+		<Reference Include="EO.Pdf.Wpf">
+			<HintPath>..\EO.Total 2022\EO.Pdf.Wpf.dll</HintPath>
+		</Reference>
+		<Reference Include="EO.Web.Design">
+			<HintPath>..\EO.Total 2022\EO.Web.Design.dll</HintPath>
+		</Reference>
+		<Reference Include="EO.WebBrowser">
+			<HintPath>..\EO.Total 2022\EO.WebBrowser.dll</HintPath>
+		</Reference>
+		<Reference Include="EO.WebBrowser.WinForm">
+			<HintPath>..\EO.Total 2022\EO.WebBrowser.WinForm.dll</HintPath>
+		</Reference>
+		<Reference Include="EO.WebBrowser.Wpf">
+			<HintPath>..\EO.Total 2022\EO.WebBrowser.Wpf.dll</HintPath>
+		</Reference>
+		<Reference Include="EO.WebEngine">
+			<HintPath>..\EO.Total 2022\EO.WebEngine.dll</HintPath>
+		</Reference>
+		<Reference Include="EO.Wpf">
+			<HintPath>..\EO.Total 2022\EO.Wpf.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.Common">
+			<HintPath>..\Rebex Total Pack v6.0.8000\Rebex.Common.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.Ews">
+			<HintPath>..\Rebex Total Pack v6.0.8000\Rebex.Ews.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.FileServer">
+			<HintPath>..\Rebex Total Pack v6.0.8000\Rebex.FileServer.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.FileSystem">
+			<HintPath>..\Rebex Total Pack v6.0.8000\Rebex.FileSystem.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.FileTransfer">
+			<HintPath>..\Rebex Total Pack v6.0.8000\Rebex.FileTransfer.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.Ftp">
+			<HintPath>..\Rebex Total Pack v6.0.8000\Rebex.Ftp.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.Http">
+			<HintPath>..\Rebex Total Pack v6.0.8000\Rebex.Http.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.Imap">
+			<HintPath>..\Rebex Total Pack v6.0.8000\Rebex.Imap.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.Mail">
+			<HintPath>..\Rebex Total Pack v6.0.8000\Rebex.Mail.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.Msg">
+			<HintPath>..\Rebex Total Pack v6.0.8000\Rebex.Msg.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.Networking">
+			<HintPath>..\Rebex Total Pack v6.0.8000\Rebex.Networking.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.Pop3">
+			<HintPath>..\Rebex Total Pack v6.0.8000\Rebex.Pop3.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.Security">
+			<HintPath>..\Rebex Total Pack v6.0.8000\Rebex.Security.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.Sftp">
+			<HintPath>..\Rebex Total Pack v6.0.8000\Rebex.Sftp.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.Smtp">
+			<HintPath>..\Rebex Total Pack v6.0.8000\Rebex.Smtp.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.SshShell">
+			<HintPath>..\Rebex Total Pack v6.0.8000\Rebex.SshShell.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.Syslog">
+			<HintPath>..\Rebex Total Pack v6.0.8000\Rebex.Syslog.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.Telnet">
+			<HintPath>..\Rebex Total Pack v6.0.8000\Rebex.Telnet.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.Terminal">
+			<HintPath>..\Rebex Total Pack v6.0.8000\Rebex.Terminal.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.Terminal.Control">
+			<HintPath>..\Rebex Total Pack v6.0.8000\Rebex.Terminal.Control.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.Terminal.SerialPort">
+			<HintPath>..\Rebex Total Pack v6.0.8000\Rebex.Terminal.SerialPort.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.Time">
+			<HintPath>..\Rebex Total Pack v6.0.8000\Rebex.Time.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.Tls">
+			<HintPath>..\Rebex Total Pack v6.0.8000\Rebex.Tls.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.WebSocket">
+			<HintPath>..\Rebex Total Pack v6.0.8000\Rebex.WebSocket.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.Zip">
+			<HintPath>..\Rebex Total Pack v6.0.8000\Rebex.Zip.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Update="Afta\View\SsAftaView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Douran\View\SsDouranView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="EcCouncil\View\SsEcCouncilView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="ImmunityDebugger\View\SsImmunityDebuggerView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Snort\View\SsSnortView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Suricata\View\SsSuricataView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="KonBoot\View\SsKonBootView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="OpenVas\View\SsOpenVASView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Nexpose\View\SsNexposeView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="OllyDbg\View\SsOllyDbgView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="GfiLanGuard\View\SsGfiLanGuardView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="CoreImpact\View\SsCoreImpactView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="CanvasImmunity\View\SsCanvasImmunityView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Netmon\View\SsNetmonView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="W3af\View\SsW3afView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="SecurityOnionSolutions\View\SsSecurityOnionSolutionsView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="VisualRoute\View\SsVisualRouteView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Nessus\View\SsTorView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Bettercap\View\SsBettercapView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Ubertooth\View\SsUbertoothView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Cyberx\View\SsCyberxView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="IbmAppScan\View\SsIbmAppScanView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="HpWebInsPect\View\SsHpWebInsPectView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Acunetix\View\SsAcunetixView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="KfSensor\View\SsTorView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Honeyd\View\SsHoneydView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="BurpSuite\View\SsBurpSuiteView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="FernWifiCracker\View\SsFernWifiCrackerView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="ScadaPass\View\SsScadaPassView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="OxygenForensicDetective\View\SsOxygenForensicDetectiveView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="NetworkMiner\View\SsNetworkminerView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Cellebrite\View\SsCellebriteView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Belkasoft\View\SsBelkasoftView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Attifyos\View\SsAttifyosView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="HackRF\View\SsHackRFView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Vega\View\SsVegaView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="OwaspZap\View\SsOwaspZapView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="SecTools\View\SsSecToolsView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Wazuh\View\SsWazuhView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Zeek\View\SsZeekView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Ossec\View\SsOssecView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Wappalyzer\View\SsWappalyzerView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Tor\View\SsTorView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Modsecurity\View\SsModsecurityView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Wireshark\View\SsWiresharkView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="IdaPro\View\SsIdaProView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="WellKnownPorts\View\SsWellKnownPortsView.xaml.cs">
+			<SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Mitre\View\SsMitreView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="CveDetails\View\SsCveDetailsView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Page Update="Afta\View\SsAftaView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="Douran\View\SsDouranView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="EcCouncil\View\SsEcCouncilView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="ImmunityDebugger\View\SsImmunityDebuggerView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="Snort\View\SsSnortView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="Suricata\View\SsSuricataView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="KonBoot\View\SsKonBootView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="OpenVas\View\SsOpenVASView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="Nexpose\View\SsNexposeView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="OllyDbg\View\SsOllyDbgView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="GfiLanGuard\View\SsGfiLanGuardView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="CoreImpact\View\SsCoreImpactView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="CanvasImmunity\View\SsCanvasImmunityView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="Netmon\View\SsNetmonView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="W3af\View\SsW3afView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="SecurityOnionSolutions\View\SsSecurityOnionSolutionsView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="VisualRoute\View\SsVisualRouteView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="Nessus\View\SsTorView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="Bettercap\View\SsBettercapView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="Ubertooth\View\SsUbertoothView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="Cyberx\View\SsCyberxView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="IbmAppScan\View\SsIbmAppScanView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="HpWebInsPect\View\SsHpWebInsPectView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="Acunetix\View\SsAcunetixView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="KfSensor\View\SsTorView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="Honeyd\View\SsHoneydView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="BurpSuite\View\SsBurpSuiteView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="FernWifiCracker\View\SsFernWifiCrackerView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="ScadaPass\View\SsScadaPassView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="OxygenForensicDetective\View\SsOxygenForensicDetectiveView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="NetworkMiner\View\SsNetworkminerView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="Cellebrite\View\SsCellebriteView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="Belkasoft\View\SsBelkasoftView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="Attifyos\View\SsAttifyosView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="HackRF\View\SsHackRFView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="Vega\View\SsVegaView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="OwaspZap\View\SsOwaspZapView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="SecTools\View\SsSecToolsView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="Wazuh\View\SsWazuhView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="Zeek\View\SsZeekView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="Ossec\View\SsOssecView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="Wappalyzer\View\SsWappalyzerView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="Tor\View\SsTorView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="Modsecurity\View\SsModsecurityView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="Wireshark\View\SsWiresharkView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="IdaPro\View\SsIdaProView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="WellKnownPorts\View\SsWellKnownPortsView.xaml">
+			<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+			<SubType>Designer</SubType>
+		</Page>
+		<Page Update="Mitre\View\SsMitreView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="CveDetails\View\SsCveDetailsView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+	</ItemGroup>
+
+</Project>
